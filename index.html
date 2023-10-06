@@ -16,21 +16,38 @@
 
 <body>
 <header>
+    <!--    <h1>-->
+    <!--        Component Haven-->
+    <!--        <span class="material-symbols-outlined">favorite</span>-->
+    <!--        <img src="https://i.pinimg.com/originals/ae/bf/9e/aebf9e4202e332529ebe436138cbf210.jpg" height="45" width="63"-->
+    <!--             alt="Логотип сайта">-->
+    <!--        <nav>-->
+    <!--            <ul>-->
+    <!--                <li><a href="https://steam.com">Games</a>-->
+    <!--                <li><a href="https://ru.wikipedia.org">Forum</a>-->
+    <!--                <li><a href="#navigation">Содержание</a></li>-->
+    <!--                <li><a href="#contact">Контакты</a></li>-->
+    <!--            </ul>-->
+    <!--        </nav>-->
+    <!--    </h1>-->
     <h1>
         Component Haven
         <span class="material-symbols-outlined">favorite</span>
         <img src="https://i.pinimg.com/originals/ae/bf/9e/aebf9e4202e332529ebe436138cbf210.jpg" height="45" width="63"
              alt="Логотип сайта">
-        <nav>
-            <ul>
-                <li><a href="https://steam.com">Games</a>
-                <li><a href="https://ru.wikipedia.org">Forum</a>
-                <li><a href="#navigation">Содержание</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
     </h1>
-
+    <section class="navbar">
+        <input id="menu-toggle" type="checkbox"/>
+        <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div>
+        </label>
+        <ul class="menu">
+            <li><a href="https://steamcommunity.com">Games</a>
+            <li><a href="https://ru.wikipedia.org">Forum</a>
+            <li><a href="#navigation">Содержание</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </section>
 </header>
 
 
@@ -45,13 +62,7 @@
         <li><a href="#news">Новость 1</a></li>
         <li><a href="#components">Компьютерные комплектующие</a></li>
     </ol>
-    <h2>Лучший рецепт</h2>
-    <p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/38OiBoNGwHM?si=AQwtscQt2nCoqCwb"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-    </p>
+
     <h2 id="pc">Компьютеры</h2>
 
     <h3 id="topic1"><cite> Льюис Д. Эйген</cite></h3>
@@ -146,10 +157,19 @@
             </ul>
         </li>
     </ol>
-    <a><img src="https://avatars.mds.yandex.net/i?id=7a32506995094ee92f25e2f8827c3775af08740f-10355200-images-thumbs&n=13"
-            alt="dream setup" width="250" height="160"></a>
-    <img src="https://avatars.mds.yandex.net/i?id=9b469d9cb065a7e63fe589bbfe97e82ddf21f064-5351088-images-thumbs&n=13"
-         alt="dream setup2" width="250" height="160">
+    <h2 class="gallery">My gallery</h2>
+    <div class="gallery">
+        <div class="gallery-item"><img src="image1.jpg" alt="Комплектующее 1"></div>
+        <div class="gallery-item"><img src="image2.jpg" alt="Комплектующее 2"></div>
+        <div class="gallery-item"><img src="image3.jpg" alt="Комплектующее 3"></div>
+        <div class="gallery-item"><img src="image4.jpg" alt="Комплектующее 4"></div>
+        <div class="gallery-item"><img src="image5.jpg" alt="Комплектующее 5"></div>
+        <div class="gallery-item"><img src="image6.jpg" alt="Комплектующее 6"></div>
+        <div class="gallery-item"><img src="image7.jpg" alt="Комплектующее 7"></div>
+        <div class="gallery-item"><img src="image8.jpg" alt="Комплектующее 8"></div>
+        <div class="gallery-item"><img src="image9.jpg" alt="Комплектующее 9"></div>
+        <div class="gallery-item"><img src="image10.jpg" alt="Комплектующее 10"></div>
+    </div>
 </main>
 <aside>
     <section>
@@ -216,7 +236,8 @@
                     <br>
 
                     <label for="datetimeInput">Дата заказа:</label>
-                    <input type="datetime-local" id="datetimeInput" name="datetime" min="2022-01-01T00:00" max="2024-01-01T00:00">
+                    <input type="datetime-local" id="datetimeInput" name="datetime" min="2022-01-01T00:00"
+                           max="2024-01-01T00:00">
 
                     <br>
 
@@ -228,7 +249,6 @@
                 </fieldset>
             </form>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.8956853996383!2d37.660534390583685!3d55.77633930740518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a795a76e111%3A0x165d1ba1e68ca4f3!2z0KPQvdC40LLQtdGA0LzQsNCzINCc0L7RgdC60L7QstGB0LrQuNC5!5e0!3m2!1sru!2sru!4v1696056571967!5m2!1sru!2sru" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 </aside>
 
@@ -242,5 +262,6 @@
         </pre>
     </address>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
