@@ -48,10 +48,19 @@
             <li><a href="#contact">Контакты</a></li>
         </ul>
     </section>
+    <div class="notification-container" onmouseover="showNotifications()" onmouseout="hideNotifications()">
+        <span class="notification-icon">🔔</span>
+        <ul class="notification-list" id="notificationList">
+            <li>New message</li>
+            <li>Update available</li>
+            <li>Friend request</li>
+        </ul>
+    </div>
 </header>
 
 
 <main>
+    <span></span>
     <h2 id="navigation"><a>Содержание</a></h2>
     <ol type="a" start="a">
         <li><a href="#pc"> Компьютеры</a></li>
@@ -62,6 +71,10 @@
         <li><a href="#news">Новость 1</a></li>
         <li><a href="#components">Компьютерные комплектующие</a></li>
     </ol>
+    <a href="#" class="button button1">Один</a>
+    <a href="#" class="button button2">Два</a>
+    <a href="#" class="button button3">Три</a>
+    <a href="#" class="button button4">Четыре</a>
 
     <h2 id="pc">Компьютеры</h2>
 
@@ -159,9 +172,20 @@
     </ol>
     <h2 class="gallery">My gallery</h2>
     <div class="gallery">
-        <div class="gallery-item"><img src="image1.jpg" alt="Комплектующее 1"></div>
-        <div class="gallery-item"><img src="image2.jpg" alt="Комплектующее 2"></div>
-        <div class="gallery-item"><img src="image3.jpg" alt="Комплектующее 3"></div>
+        <div class="gallery-item">
+            <div class="image-overlay"></div>
+            <div class="image-description">Описание комплектующего 1</div>
+            <img src="image1.jpg" alt="Комплектующее 1">
+        </div>
+        <div class="gallery-item">
+            <div class="image-overlay"></div>
+            <div class="image-description">Описание комплектующего 2</div>
+            <img src="image2.jpg" alt="Комплектующее 2">
+        </div>
+        <div class="gallery-item">
+            <div class="image-overlay"></div>
+            <div class="image-description">Описание комплектующего 3</div>
+            <img src="image3.jpg" alt="Комплектующее 3"></div>
         <div class="gallery-item"><img src="image4.jpg" alt="Комплектующее 4"></div>
         <div class="gallery-item"><img src="image5.jpg" alt="Комплектующее 5"></div>
         <div class="gallery-item"><img src="image6.jpg" alt="Комплектующее 6"></div>
