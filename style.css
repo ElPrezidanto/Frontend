@@ -12,6 +12,12 @@ header {
     align-items: center;
 }
 
+/*body{
+    padding: 4.5rem;
+    margin: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 255, 0.8) 0, rgba(255, 0, 0, 0.8) 62%);
+    font-family: "Inter", sans-serif;
+}*/
 h1 {
     font-family: 'Mooli', sans-serif; /* Выбор шрифта */
 }
@@ -50,6 +56,7 @@ nav a {
 /* Стили для main */
 main {
     padding: 80px 20px 20px 20px;
+    color: #f4f4f4;
 }
 
 /* Стили для всей формы */
@@ -131,9 +138,6 @@ fieldset {
     padding: 10px;
 }
 
-iframe {
-
-}
 
 legend {
     font-weight: bold;
@@ -142,7 +146,7 @@ legend {
 
 ::placeholder {
     color: rgba(248, 0, 0, 0.43); /* Цвет текста подсказки */
-    font-style: italic; /* Курсив для подсказки (по желанию) */
+    font-style: italic; /* Курсив для подсказки  */
 }
 
 h2 {
@@ -169,7 +173,7 @@ aside p {
 
 /* Стили для footer */
 footer {
-    background-color: #333;
+    background-color: #1b061d;
     color: #fff;
     padding: 0;
     text-align: center; /* Выравнивание текста по центру */
@@ -446,17 +450,19 @@ nav ul li a:visited {
     transform: scaleY(1);
     transform-origin: top;
 }
+
 @keyframes pulse {
-    from{
+    from {
         width: 70px;
         height: 45px;
     }
-    to{
+    to {
         width: 100px;
         height: 60px;
     }
 
 }
+
 .button4 {
     overflow: hidden;
     /*animation: pulse 1s infinite alternate ease-in-out;*/
@@ -477,6 +483,7 @@ nav ul li a:visited {
 .button4:hover::before {
     transform: skewX(-30deg) scaleX(1);
 }
+
 .notification {
     position: relative;
     display: inline-block;
@@ -538,7 +545,6 @@ nav ul li a:visited {
 }
 
 
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -595,30 +601,275 @@ nav ul li a:visited {
     transform: translateY(0);
 }
 
-.card-name {
-    position: absolute;
-    width: 15%;
-    height: 10%;
-    background-color: rgba(0, 0, 0, 0.9);
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s;
-    display: flex;
-    align-items: center;
+@keyframes animate {
+    0%, 100% {
+        transform: translateY(10px);
+    }
+
+    50% {
+        transform: translate(-10px);
+    }
+}
+
+
+body {
     justify-content: center;
-    vertical-align: middle;
-    font-size: 18px;
-    color: #f3f3f3;
+    min-height: 100vh;
+    background: #1d061a
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.cards .card {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 30px;
+    transition: 0.5s;
+}
+
+.cards .card::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
     text-decoration: none;
-    border: 1px solid #fff;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+}
+
+.cards .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: 0.5s;
+    filter: blur(30px);
+}
+
+
+.cards .card:hover:before,
+.cards .card:hover:after {
+    transform: skewX(0deg);
+    left: 20px;
+    width: calc(100% - 90px);
 
 }
 
-.card:hover .card-name {
-    visibility: visible;
+.cards .card:nth-child(1):before,
+.cards .card:nth-child(1):after {
+    background: linear-gradient(315deg, #ffbc00, #ff0058)
+}
+
+.cards .card:nth-child(2):before,
+.cards .card:nth-child(2):after {
+    background: linear-gradient(315deg, rgba(255, 0, 0, 0.8), #0000ff)
+}
+
+.cards .card:nth-child(3):before,
+.cards .card:nth-child(3):after {
+    background: linear-gradient(315deg, #607aff, #00d0ff)
+}
+
+.cards .card span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.cards .card span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.1s;
+    animation: animate 2s ease-in-out infinite;
+    card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08)
+}
+
+.cards .card span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    animation-delay: -1s;
+}
+
+.cards .card:hover span::before {
+    top: -50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
     opacity: 1;
 }
 
-iframe {
-    flex-wrap: wrap
+.cards .card .content {
+    position: relative;
+    left: 0;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+    color: #fff;
 }
+
+@keyframes change-color-tg-vk {
+    from{
+        background-color: rgba(0,0,0,0);
+        border-radius: 20px;
+    }
+    to{
+        background-color: rgb(76,117,163);
+        border-radius: 20px;
+    }
+}
+@keyframes change-color-inst {
+    from{
+        background-color: rgba(0,0,0,0);
+        border-radius: 20px;
+    }
+    to{
+        background-color: #5a08e7;
+        border-radius: 20px;
+    }
+}
+.social-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #39123b; /* Цвет фона футера */
+    padding: 20px;
+}
+
+/* Стили для каждой кнопки */
+.social-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+/* Стили для псевдоэлементов, создающих градиентный эффект сверху */
+.social-button::before,
+.social-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5)); /* Градиент сверху */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Плавное появление */
+}
+
+/* Стили для иконок социальных сетей  */
+.social-button img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Анимация при наведении */
+.social-button:hover::before,
+.social-button:hover::after {
+    opacity: 1;
+}
+
+/* При наведении курсора меняется на указатель */
+.social-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.social-button:nth-child(1):hover,
+.social-button:nth-child(2):hover{
+    animation: change-color-tg-vk 1s ease-in-out forwards;
+}
+.social-button:nth-child(3):hover{
+    animation: change-color-inst 1s ease-in-out forwards;
+}
+
+
+/*
+.card:hover {
+    transform: scale(1.05);
+}
+
+@keyframes moveSquare {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(20px, 20px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+!*#card1{
+    font-family: 'Mooli', sans-serif;
+}*!
+.card-text {
+    color: #fff;
+    text-align: center;
+    margin: 50px;
+    font-size: 18px;
+    z-index: 1;
+    font-family: 'Mooli', sans-serif;
+}
+
+#card1::before {
+    background: linear-gradient(45deg, #4CAF50, #2196F3);
+    animation: moveSquare infinite 2s;
+}
+
+#card2::before {
+    background: linear-gradient(45deg, #de1b1b, rgba(0, 0, 255, 0.8));
+    animation: moveSquare 3s infinite 1s;
+}
+
+#card3::before {
+    background: linear-gradient(45deg, #691bde, rgba(255, 77, 0, 0.8));
+    animation: moveSquare 3s infinite 2s;
+}
+*/
+
