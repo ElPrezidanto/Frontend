@@ -59,7 +59,7 @@ main {
     color: #f4f4f4;
 }
 
-/* Стили для всей формы */
+/*!* Стили для всей формы *!
 form {
     background-color: #f4f4f4;
     padding: 20px;
@@ -68,12 +68,12 @@ form {
     margin: 0 auto;
 }
 
-/* Стили для заголовка формы */
+!* Стили для заголовка формы *!
 form h2 {
     color: #333;
 }
 
-/* Стили для элементов ввода текста */
+!* Стили для элементов ввода текста *!
 input[type="text"],
 input[type="tel"],
 input[type="email"],
@@ -86,7 +86,7 @@ textarea {
     border-radius: 5px;
 }
 
-/* Стили для кнопки отправки */
+!* Стили для кнопки отправки *!
 button[type="submit"] {
     background-color: #4caf50;
     color: #fff;
@@ -96,19 +96,19 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-/* Стили для кнопки при наведении */
+!* Стили для кнопки при наведении *!
 button[type="submit"]:hover {
     background-color: #07ffe2;
 }
 
-/* Стили для поля ввода в фокусе */
+!* Стили для поля ввода в фокусе *!
 input:focus,
 textarea:focus {
     border: 2px solid #4caf50;
     outline: none;
 }
 
-/* Стили для checkbox и radio */
+!* Стили для checkbox и radio *!
 input[type="checkbox"],
 input[type="radio"] {
     margin-right: 10px;
@@ -123,14 +123,14 @@ input[type="file"]:focus {
     color: darkblue;
 }
 
-/* Стили для меток (label) */
+!* Стили для меток (label) *!
 label {
     margin-bottom: 8px;
     color: black;
     display: inline-block;
 }
 
-/* Стили для fieldset и legend */
+!* Стили для fieldset и legend *!
 fieldset {
     border: 1px solid #027568;
     border-radius: 5px;
@@ -145,9 +145,9 @@ legend {
 }
 
 ::placeholder {
-    color: rgba(248, 0, 0, 0.43); /* Цвет текста подсказки */
-    font-style: italic; /* Курсив для подсказки  */
-}
+    color: rgba(248, 0, 0, 0.43); !* Цвет текста подсказки *!
+    font-style: italic; !* Курсив для подсказки  *!
+}*/
 
 h2 {
     font-family: 'Mooli', sans-serif;
@@ -217,7 +217,7 @@ nav ul li a:visited {
 
 * {
     font-family: "Raleway";
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 
 .navbar {
@@ -281,7 +281,7 @@ nav ul li a:visited {
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::before {
-    margin-top: 0px;
+    margin-top: 0;
     transform: rotate(405deg);
 }
 
@@ -290,7 +290,7 @@ nav ul li a:visited {
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {
-    margin-top: 0px;
+    margin-top: 0;
     transform: rotate(-405deg);
 }
 
@@ -611,11 +611,14 @@ nav ul li a:visited {
     }
 }
 
+:root {
+    --white: rgba(255, 255, 255, 0.3);
+}
 
 body {
     justify-content: center;
     min-height: 100vh;
-    background: #1d061a
+    background: #1d061a;
 }
 
 .cards {
@@ -754,25 +757,27 @@ body {
 }
 
 @keyframes change-color-tg-vk {
-    from{
-        background-color: rgba(0,0,0,0);
+    from {
+        background-color: rgba(0, 0, 0, 0);
         border-radius: 20px;
     }
-    to{
-        background-color: rgb(76,117,163);
+    to {
+        background-color: rgb(76, 117, 163);
         border-radius: 20px;
     }
 }
+
 @keyframes change-color-inst {
-    from{
-        background-color: rgba(0,0,0,0);
+    from {
+        background-color: rgba(0, 0, 0, 0);
         border-radius: 20px;
     }
-    to{
+    to {
         background-color: #5a08e7;
         border-radius: 20px;
     }
 }
+
 .social-buttons {
     display: flex;
     justify-content: space-around;
@@ -820,56 +825,86 @@ body {
 }
 
 .social-button:nth-child(1):hover,
-.social-button:nth-child(2):hover{
+.social-button:nth-child(2):hover {
     animation: change-color-tg-vk 1s ease-in-out forwards;
 }
-.social-button:nth-child(3):hover{
+
+.social-button:nth-child(3):hover {
     animation: change-color-inst 1s ease-in-out forwards;
 }
 
 
-/*
-.card:hover {
-    transform: scale(1.05);
+.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
-@keyframes moveSquare {
-    0% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(20px, 20px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-}
-
-!*#card1{
-    font-family: 'Mooli', sans-serif;
-}*!
-.card-text {
+.card-container .card {
+    width: 200px;
+    height: 300px;
+    background: linear-gradient(90deg, red, blue);
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
     text-align: center;
-    margin: 50px;
-    font-size: 18px;
-    z-index: 1;
-    font-family: 'Mooli', sans-serif;
+    border-radius: 10px;
+    overflow: hidden;
+    filter: blur(7px);
+    transition: filter 0.3s ease;
+    margin: 0 10px;
 }
 
-#card1::before {
-    background: linear-gradient(45deg, #4CAF50, #2196F3);
-    animation: moveSquare infinite 2s;
+.card-container .card:hover {
+    filter: blur(0);
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
-#card2::before {
-    background: linear-gradient(45deg, #de1b1b, rgba(0, 0, 255, 0.8));
-    animation: moveSquare 3s infinite 1s;
+
+.card3 {
+    width: 200px;
+    height: 300px;
+    background: linear-gradient(90deg, #2a2222, #1b061d);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin: 50px 10px 10px 0;
+    filter: brightness(0.1);
 }
 
-#card3::before {
-    background: linear-gradient(45deg, #691bde, rgba(255, 77, 0, 0.8));
-    animation: moveSquare 3s infinite 2s;
-}
-*/
+.card3::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.8) 100%);
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 
+}
+
+.card3:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.card3:hover::before {
+    opacity: 0;
+}
+
+.card3:hover::after {
+
+}
