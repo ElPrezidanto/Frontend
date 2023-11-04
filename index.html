@@ -17,6 +17,9 @@
 <body>
 <header>
     <h1>
+
+        <img src="https://i.pinimg.com/originals/ae/bf/9e/aebf9e4202e332529ebe436138cbf210.jpg" height="45" width="63"
+             alt="Логотип сайта">
         Component Haven
         <span class="material-symbols-outlined">favorite</span>
     </h1>
@@ -28,9 +31,20 @@
         <ul class="menu">
             <li><a href="https://steamcommunity.com">Games</a>
             <li><a href="https://ru.wikipedia.org">Forum</a>
-            <li><a href="registr.html">Form</a></li>
+            <li><a href="#navigation">Содержание</a></li>
+            <li><a href="#contact">Контакты</a></li>
+            <li><a href="registr.html">Вход</a></li>
         </ul>
     </section>
+    <div class="notification">
+        Уведомления
+        <span class="notification-count">3</span>
+        <ul class="notification-list">
+            <li class="notification-item">Новое уведомление 1</li>
+            <li class="notification-item">Новое уведомление 2</li>
+            <li class="notification-item">Новое уведомление 3</li>
+        </ul>
+    </div>
 
 </header>
 
@@ -60,6 +74,46 @@
         </div>
     </div>
 
+
+    <div class="card-container">
+        <div class="card">
+            <h2>Card 1</h2>
+        </div>
+        <div class="card">
+            <h2>Card 2</h2>
+        </div>
+        <div class="card">
+            <h2>Card 3</h2>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card3" id="card1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h2>Card 1</h2>
+        </div>
+
+        <div class="card3" id="card2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h2>Card 2</h2>
+        </div>
+
+        <div class="card3" id="card3">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h2>Card 3</h2>
+        </div>
+    </div>
+
+
     <h2 class="gallery">My gallery</h2>
     <div class="gallery">
         <div class="gallery-item">
@@ -79,67 +133,46 @@
             <div class="image-description">Описание комплектующего 3</div>
 
         </div>
-        <div class="gallery-item">
-            <img src="image4.jpg" alt="Комплектующее 4">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 4</div>
-        </div>
-        <div class="gallery-item">
-            <img src="image5.jpg" alt="Комплектующее 5">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 5</div>
-        </div>
-        <div class="gallery-item">
-            <img src="image6.jpg" alt="Комплектующее 6">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 6</div>
-        </div>
-        <div class="gallery-item">
-            <img src="image7.jpg" alt="Комплектующее 7">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 7</div>
-        </div>
-        <div class="gallery-item">
-            <img src="image8.jpg" alt="Комплектующее 8">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 8</div>
-        </div>
-        <div class="gallery-item">
-            <img src="image9.jpg" alt="Комплектующее 9">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 9</div>
-        </div>
-        <div class="gallery-item">
-            <img src="image10.jpg" alt="Комплектующее 10">
-            <div class="image-overlay"></div>
-            <div class="image-description">Описание комплектующего 10</div>
-        </div>
+        <div class="gallery-item"><img src="image4.jpg" alt="Комплектующее 4"></div>
+        <div class="gallery-item"><img src="image5.jpg" alt="Комплектующее 5"></div>
+        <div class="gallery-item"><img src="image6.jpg" alt="Комплектующее 6"></div>
+        <div class="gallery-item"><img src="image7.jpg" alt="Комплектующее 7"></div>
+        <div class="gallery-item"><img src="image8.jpg" alt="Комплектующее 8"></div>
+        <div class="gallery-item"><img src="image9.jpg" alt="Комплектующее 9"></div>
+        <div class="gallery-item"><img src="image10.jpg" alt="Комплектующее 10"></div>
+    </div>
+    <div class="like-container">
+        <button id="likeButton" class="like-button">
+            <!--<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C16.09 3.81 17.76 3 19.5 3 22.58 3 25 5.42 25 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>-->
+            <span class="heart"></span>
+            <span class="like-count">0</span>
+            <div class="drawing-container"></div>
+        </button>
     </div>
 </main>
-
 <footer>
+    Для большей информации:
+    <address>
         <div class="social-buttons">
             <div class="social-button">
-                <a href="https://www.nvidia.com/" target="_blank">
-                    NVIDIA
-                </a>
+                <img src="telegram.png" alt="Telegram">
             </div>
             <div class="social-button">
-                <a href="https://www.intel.com/" target="_blank">
-                    Intel
-                </a>
+                <img src="vk.png" alt="Vk">
             </div>
             <div class="social-button">
-                <a href="https://www.amd.com/" target="_blank">
-                    AMD
-                </a>
+                <img src="inst.png" alt="Instagram">
             </div>
         </div>
+    </address>
 </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 <!--<aside>
     <section>
         <h2>Реклама</h2>
@@ -220,4 +253,3 @@
         </div>
     </section>
 </aside>-->
-
