@@ -141,35 +141,48 @@
         <div class="gallery-item"><img src="image9.jpg" alt="Комплектующее 9"></div>
         <div class="gallery-item"><img src="image10.jpg" alt="Комплектующее 10"></div>
     </div>
-    <div class="like-container">
-        <button id="likeButton" class="like-button">
-            <span class="heart"></span>
-            <span class="like-count">0</span>
-            <div class="drawing-container"></div>
-        </button>
-    </div>
-</main>
-<footer>
-    Для большей информации:
-    <address>
-        <div class="social-buttons">
-            <div class="social-button">
-                <img src="telegram.png" alt="Telegram">
-            </div>
-            <div class="social-button">
-                <img src="vk.png" alt="Vk">
-            </div>
-            <div class="social-button">
-                <img src="inst.png" alt="Instagram">
-            </div>
+
+<!--    <button id="likeButton" class="like-button">❤️ Like <span class="like-count">0</span> </button>-->
+<!--&lt;!&ndash;    div class="like-count">0</div><&ndash;&gt;-->
+<!--    <div class="drawing-container"></div>-->
+
+
+
+    <form id="registrationForm">
+        <label for="username">Имя:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <div class="captcha-container" id="captchaContainer"></div>
+        <br>
+        <button type="button" onclick="checkCaptcha()">Проверить</button>
+        <button type="submit" id="registerButton" disabled>Зарегистрироваться</button>
+    </form>
+
+
+    <button type="button" onclick="addToCart()">Добавить в корзину</button>
+    <div id="cartValueContainer"></div>
+
+    <div class="cardb-container3">
+        <div class="cardb" id="card11">
+            <h10 id="card1Title">пример усечения текста</h10>
+
         </div>
-    </address>
-</footer>
+        <br>
+        <div class="cardb" id="card12">
+            <h10 id="card2Title">без "..."</h10>
+        </div>
+        <br>
+        <div class="cardb" id="card13">
+            <h10 id="card3Title">менее 15 символов</h10>
+        </div>
+    </div>
 
-<script src="script.js"></script>
-</body>
-</html>
 
+
+</main>
 <!--<aside>
     <section>
         <h2>Реклама</h2>
@@ -250,3 +263,24 @@
         </div>
     </section>
 </aside>-->
+
+<footer>
+    Для большей информации:
+    <address>
+        <div class="social-buttons">
+            <div class="social-button">
+                <img src="telegram.png" alt="Telegram">
+            </div>
+            <div class="social-button">
+                <img src="vk.png" alt="Vk">
+            </div>
+            <div class="social-button">
+                <img src="inst.png" alt="Instagram">
+            </div>
+        </div>
+    </address>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
