@@ -104,7 +104,7 @@ truncate(document.getElementById('card1Title'), 15);
 truncate(document.getElementById('card2Title'), 15);
 truncate(document.getElementById('card3Title'), 15);
 
-//
+
 /*
 const likeButton = document.getElementById('likeButton');
 const likeCount = document.querySelector('.like-count');
