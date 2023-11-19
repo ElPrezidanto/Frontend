@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <link rel="stylesheet" href="https://libs.cdnjs.net/font-awesome/6.4.2/css/all.css">
 </head>
 
 <body>
@@ -142,127 +143,126 @@
         <div class="gallery-item"><img src="image10.jpg" alt="Комплектующее 10"></div>
     </div>
 
-<!--    <button id="likeButton" class="like-button">❤️ Like <span class="like-count">0</span> </button>-->
-<!--&lt;!&ndash;    div class="like-count">0</div><&ndash;&gt;-->
-<!--    <div class="drawing-container"></div>-->
+    <button onclick="changeItem()"><i class="fa-solid fa-trash"></i></button>
+    <button onclick="clearArray()"><i class="fa-solid fa-broom"></i></button>
+    <button onclick="sortByName()">Сортировать по имени</button>
+    <input type="text" id="newItemInput" placeholder="Введите новый товар (количество,цена)">
+    <button onclick="addItem()">Добавить элемент</button>
+    <ul id="cartItems"></ul>
+    <p>Итоговая стоимость: <span id="totalCost">0</span></p>
+    <br>
+    <label for="minValue">Минимальное значение (a): </label>
+    <input type="number" id="minValue" step="any" placeholder="Введите a">
 
+    <label for="maxValue">Максимальное значение (b): </label>
+    <input type="number" id="maxValue" step="any" placeholder="Введите b">
 
+    <button onclick="applyFilter()">Применить фильтр</button>
 
-    <form id="registrationForm">
-        <label for="username">Имя:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <div class="captcha-container" id="captchaContainer"></div>
-        <br>
-        <button type="button" onclick="checkCaptcha()">Проверить</button>
-        <button type="submit" id="registerButton" disabled>Зарегистрироваться</button>
-    </form>
+    <h3>Изначальный массив:</h3>
+    <div id="originalArray"></div>
 
+    <h3>Измененный массив после фильтрации:</h3>
+    <div id="filteredArray"></div>
 
-    <button type="button" onclick="addToCart()">Добавить в корзину</button>
-    <div id="cartValueContainer"></div>
+    <script>
+        let items = [
+            {name: 'Товар 1', quantity: 1, price: 10},
+            {name: 'Товар 2', quantity: 2, price: 15},
+            {name: 'Товар 3', quantity: 3, price: 20},
+        ];
+        let sortAscending = false;
 
-    <div class="cardb-container3">
-        <div class="cardb" id="card11">
-            <h10 id="card1Title">пример усечения текста</h10>
+        function displayItems() {
+            const cartItemsElement = document.getElementById('cartItems');
+            const totalCostElement = document.getElementById('totalCost');
 
-        </div>
-        <br>
-        <div class="cardb" id="card12">
-            <h10 id="card2Title">без "..."</h10>
-        </div>
-        <br>
-        <div class="cardb" id="card13">
-            <h10 id="card3Title">менее 15 символов</h10>
-        </div>
-    </div>
+            cartItemsElement.innerHTML = '';
+            let totalCost = 0;
 
+            items.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} (Количество: ${item.quantity}, Стоимость: ${item.quantity * item.price})`;
+                cartItemsElement.appendChild(listItem);
 
+                totalCost += item.quantity * item.price;
+            });
 
+            totalCostElement.textContent = totalCost;
+        }
+
+        function changeItem() {
+            if (items.length > 0) {
+                items.shift();
+                displayItems();
+            }
+        }
+
+        function clearArray() {
+            items = [];
+            displayItems();
+        }
+
+        function addItem() {
+            const newItemInput = document.getElementById('newItemInput');
+            const newItemValue = newItemInput.value.trim();
+
+            if (newItemValue !== '') {
+                const [name, quantity, price] = newItemValue.split(',').map(value => value.trim());
+
+                if (name && quantity && price && !isNaN(quantity) && !isNaN(price)) {
+                    items.push({name, quantity: parseInt(quantity), price: parseFloat(price)});
+                    displayItems();
+                    newItemInput.value = '';
+                } else {
+                    alert('Пожалуйста, введите корректные значения для нового товара.');
+                }
+            }
+        }
+
+        function sortByName() {
+            sortAscending = !sortAscending;
+            items.sort((a, b) => {
+                const order = sortAscending ? 1 : -1;
+                return order * a.name.localeCompare(b.name);
+            });
+            displayItems();
+        }
+
+        displayItems();
+
+        function filterArray(arr, a, b) {
+            return arr.filter(element => element >= a && element <= b);
+        }
+
+        function displayArray(arr, elementId) {
+            const displayElement = document.getElementById(elementId);
+            displayElement.innerHTML = '';
+            const list = document.createElement('ul');
+            arr.forEach(element => {
+                const listItem = document.createElement('li');
+                listItem.textContent = element;
+                list.appendChild(listItem);
+            });
+            displayElement.appendChild(list);
+        }
+
+        function applyFilter() {
+            const minValue = parseFloat(document.getElementById('minValue').value);
+            const maxValue = parseFloat(document.getElementById('maxValue').value);
+            const resultArray = filterArray(inputArray, minValue, maxValue);
+            displayArray(resultArray, 'filteredArray');
+        }
+
+        let inputArray = [1, 5, 10, 15, 20];
+        displayArray(inputArray, 'originalArray');
+    </script>
+
+    <!--    <button id="likeButton" class="like-button">❤️ Like <span class="like-count">0</span> </button>-->
+    <!--&lt;!&ndash;    div class="like-count">0</div><&ndash;&gt;-->
+    <!--    <div class="drawing-container"></div>-->
 </main>
-<!--<aside>
-    <section>
-        <h2>Реклама</h2>
-        <p>Poizon express - лучший сервис доставки кроссовок, одежды и аксессуаров из-за границы.</p>
-        <div>Для заказа заполните форму ниже:
-            <form action="" method="post" autocomplete="off">
-                <fieldset>
-                    <legend>Форма для заказа</legend>
-                    <label for="textInput">Товар:</label>
-                    <input type="text" id="textInput" name="text" placeholder="Enter text" required>
-                    <br>
 
-                    <label for="telInput">Номер телефона:</label>
-                    <input type="tel" id="telInput" name="tel" placeholder="Enter phone number"
-                           pattern="[8]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-
-                    <br>
-
-                    <label for="emailInput">Email:</label>
-                    <input type="email" id="emailInput" name="email" placeholder="Enter email" required>
-
-                    <br>
-
-                    <label for="passwordInput">Пароль:</label>
-                    <input type="password" id="passwordInput" name="password" placeholder="Enter password" required>
-
-                    <br>
-
-                    <label for="fileInput">Скриншот товара:</label>
-                    <input type="file" id="fileInput" name="file">
-
-                    <br>
-
-                    <input type="checkbox" id="checkboxInput" name="checkbox" checked>
-                    <label for="checkboxInput">Ускоренная доставка</label>
-
-                    <br>
-
-                    <input type="radio" id="radioInput1" name="radio" value="option1" checked>
-                    <label for="radioInput1">Обувь</label>
-
-                    <input type="radio" id="radioInput2" name="radio" value="option2">
-                    <label for="radioInput2">Одежда</label>
-
-                    <br>
-
-                    <label for="choose">Выберите размер:</label>
-                    <select id="choose" name="chose" multiple size="1" required>
-                        <option value="" hidden>Выбрать</option>
-                        <option value="1">35</option>
-                        <option value="2">36</option>
-                        <option value="3">37</option>
-                        <option value="4">38</option>
-                        <option value="5">39</option>
-                        <option value="6">40</option>
-                        <option value="7">41</option>
-                        <option value="8">42</option>
-                        <option value="9">43</option>
-                        <option value="10">44</option>
-                        <option value="11">45</option>
-                    </select>
-
-                    <br>
-
-                    <label for="datetimeInput">Дата заказа:</label>
-                    <input type="datetime-local" id="datetimeInput" name="datetime" min="2022-01-01T00:00"
-                           max="2024-01-01T00:00">
-
-                    <br>
-
-                    <label for="textareaInput">Информация о товаре:</label>
-                    <textarea id="textareaInput" name="textarea" rows="1" cols="50" maxlength="200" minlength="1"
-                              placeholder="Enter text" required></textarea>
-                    <button type="submit">Submit</button>
-
-                </fieldset>
-            </form>
-        </div>
-    </section>
-</aside>-->
 
 <footer>
     Для большей информации:
